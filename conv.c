@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<pool.h>
 #define IMG 7
 #define CH 3
 #define FIL 3
 
 
-void conv(int[][IMG][IMG],int[FIL][FIL][FIL],int ,int);
-void pool(int input[][3],int stride);
+int * conv(int[][IMG][IMG],int[FIL][FIL][FIL],int ,int);
+int * pool(int input[][3],int stride);
 
 int main(){
 	int n=7;
@@ -44,7 +43,7 @@ int main(){
 	return 0;
 }
 
-void conv(int input[][IMG][IMG],int filter[][FIL][FIL],int stride,int bias){
+int * conv(int input[][IMG][IMG],int filter[][FIL][FIL],int stride,int bias){
 	int a,b,s=stride,t=0,c,i,j,k,g,h,xx;
 	int out[3][3];
 	for(a=0; a<CH;a++){
@@ -83,6 +82,3 @@ void conv(int input[][IMG][IMG],int filter[][FIL][FIL],int stride,int bias){
 	
 	pool(out,1);
 }
-
-
-
