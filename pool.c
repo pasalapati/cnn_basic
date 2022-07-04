@@ -1,8 +1,7 @@
-#include<stdlib.h>
-
-void pool(int input[][3],int stride)
+int * pool(int input[][3],int stride)
 {
-	int s=stride,t=0,k=0,g,x=0,y=0,a,b,max=0,out[2][2],f=0;
+	int s=stride,t=0,k=0,g,x=0,y=0,a,b,max=0;
+	int outpool[2][2],f=0;
 	for(g=0;g<4;g++){
 		int l=0;
 		if(g%2==1){
@@ -19,8 +18,8 @@ void pool(int input[][3],int stride)
 			{	
 				if(input[a][b]>max)
 				{
-					out[x][y]=input[a][b];
-					max=out[x][y];
+					outpool[x][y]=input[a][b];
+					max=outpool[x][y];
 				}
 			}
 			
@@ -35,9 +34,9 @@ printf("\n\n");
 		for(y=0;y<2;y++)
 		{
 		
-			printf(" %d ",out[x][y]);
+			printf(" %d ",outpool[x][y]);
 		}
 		printf("\n");
 	}
-	
+	return outpool;
 }
