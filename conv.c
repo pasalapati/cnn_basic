@@ -39,7 +39,9 @@ int main(){
             }
         }
     }
-    conv(input, filter, 2, 0);
+    int *nout;
+    int z=0;
+    nout=conv(input, filter, 2, 0);
 	return 0;
 }
 
@@ -78,7 +80,7 @@ int * conv(int input[][IMG][IMG],int filter[][FIL][FIL],int stride,int bias){
     		printf(" %d ",out[i][j]);
 		}
     	printf("\n");
-	}
-	
-	pool(out,1);
+	}	
+	int *pool_out = pool(out,1);
+	return out;
 }
