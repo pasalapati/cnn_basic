@@ -1,13 +1,11 @@
-int * pool(int input[][3],int stride)
+float * pool(float input[][3],int stride)
 {
 	int s=stride,t=0,k=0,g,x=0,y=0,a,b,max=0;
-	int outpool[2][2],f=0;
+	float outpool[2][2],f=0;
 	for(g=0;g<4;g++){
 		int l=0;
 		if(g%2==1){
-			f=1;
-			k=1;
-			l=1;
+			f=k=l=1;
 		}
 		if(g>1){
 			f=1;
@@ -34,9 +32,9 @@ printf("\n\n");
 		for(y=0;y<2;y++)
 		{
 		
-			printf(" %d ",outpool[x][y]);
+			printf(" %f ",outpool[x][y]);
 		}
-		printf("\n");
+		//printf("\n");
 	}
 	return outpool;
 }
