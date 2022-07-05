@@ -5,7 +5,7 @@
 #define FIL 3
 
 
-float * convRelu(int[][IMG][IMG],int[FIL][FIL][FIL],int ,int);
+float * conv(int[][IMG][IMG],int[FIL][FIL][FIL],int ,int);
 float * pool(float input[][3],int stride);
 
 int main(){
@@ -38,11 +38,11 @@ int main(){
         }
     }
     float *nout;
-    nout=convRelu(input, filter, 2, 0);
+    nout=conv(input, filter, 2, 0);
 	return 0;
 }
 
-float * convRelu(int input[][IMG][IMG],int filter[][FIL][FIL],int stride,int bias){
+float * conv(int input[][IMG][IMG],int filter[][FIL][FIL],int stride,int bias){
 	int a,b,s=stride,t=0,c,i,j,k,g,h,xx;
 	float out[3][3];
 	for(a=0; a<CH;a++){
@@ -76,9 +76,6 @@ float * convRelu(int input[][IMG][IMG],int filter[][FIL][FIL],int stride,int bia
 	//Printing the Convolution output and 
 	 for(i=0;i<3;i++){
     	for(j=0;j<3;j++){
-    		if(out[i][j]<0){
-    			out[i][j]=0; //-- Relu
-			}
     		printf(" %f ",out[i][j]);
 		}
     	printf("\n");
